@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://art/arrow_gold.png" type="Texture" id=1]
+[ext_resource path="res://art/arrow_green.png" type="Texture" id=2]
+[ext_resource path="res://art/car_red_5.png" type="Texture" id=3]
+[ext_resource path="res://Cars/Car.gd" type="Script" id=4]
+[ext_resource path="res://Cars/Trail.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 16.4833
+height = 28.152
+
+[node name="Car" type="KinematicBody2D"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="arrow_gold" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+offset = Vector2( 30, 0 )
+
+[node name="arrow_green" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+offset = Vector2( 26.909, 0.827 )
+
+[node name="TrailPos1" type="Position2D" parent="."]
+position = Vector2( 18.4026, -10.8115 )
+
+[node name="Trail" parent="TrailPos1" instance=ExtResource( 5 )]
+
+[node name="TrailPos2" type="Position2D" parent="."]
+position = Vector2( -20.2429, -10.8115 )
+
+[node name="Trail" parent="TrailPos2" instance=ExtResource( 5 )]
+
+[node name="TrailPos4" type="Position2D" parent="."]
+position = Vector2( 18.4026, 10.812 )
+
+[node name="Trail" parent="TrailPos4" instance=ExtResource( 5 )]
+
+[node name="TrailPos3" type="Position2D" parent="."]
+position = Vector2( -20.2429, 10.812 )
+
+[node name="Trail" parent="TrailPos3" instance=ExtResource( 5 )]

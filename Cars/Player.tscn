@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Cars/Car.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Utils/DrawVectors.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Cars/Player.gd" type="Script" id=4]
+
+[node name="Player" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="1"]
+z_index = 1
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+rotation = 1.57079
+rotating = true
+current = true
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="DrawVectors" parent="." index="9" instance=ExtResource( 2 )]
